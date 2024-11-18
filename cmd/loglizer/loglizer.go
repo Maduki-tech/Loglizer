@@ -1,30 +1,32 @@
 package loglizer
 
 import (
-	"io"
 	"log"
+	"os"
 )
 
 type Loglizer struct {
-	logger *log.Logger
+	file *os.File
 }
 
-func NewLoglizer(writer io.Writer) *Loglizer {
+func NewLoglizer(file *os.File) *Loglizer {
 
-	logger := log.New(writer, "", log.LstdFlags)
 	return &Loglizer{
-		logger: logger,
+		file: file,
 	}
 }
 
 func (l *Loglizer) Info(message string) {
-	l.logger.Println(message)
+	infoLogger := log.New(l.file, "INFO: ", log.Ldate|log.Ltime|log.Lshortfile)
+	infoLogger.Println(message)
 }
 
 func (l *Loglizer) Warn(message string) {
-	l.logger.Println(message)
+	warnLogger := log.New(l.file, "WARN: ", log.Ldate|log.Ltime|log.Lshortfile)
+	warnLogger.Println(message)
 }
 
 func (l *Loglizer) Error(message string) {
-	l.logger.Println(message)
+	errorLogger := log.New(l.file, "ERROR: ", log.Ldate|log.Ltime|log.Lshortfile)
+	errorLogger.Println(message)
 }

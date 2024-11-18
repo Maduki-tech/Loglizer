@@ -1,0 +1,6 @@
+INFO: 2024/11/18 21:11:43 loglizer.go:21: info
+Warn: 2024/11/18 21:11:43 loglizer.go:26: warn
+Error: 2024/11/18 21:11:43 loglizer.go:31: error
+INFO: 2024/11/18 21:27:50 loglizer.go:21: info
+WARN: 2024/11/18 21:27:50 loglizer.go:26: warn
+ERROR: 2024/11/18 21:27:50 loglizer.go:31: error
